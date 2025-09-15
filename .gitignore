@@ -1,0 +1,73 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.env.*
+dist/
+build/
+coverage/
+.DS_Store
+*.local
+*.log
+*.pid
+*.seed
+*.tgz
+.cache/
+.next/
+out/
+
+# VSCode
+.vscode/
+
+# OS
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+logs/
+*.log
+
+# MySQL
+*.sql
+*.sqlite
+
+# Redis
+*.rdb
+*.aof
+
+# Swagger
+swagger-ui/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Backend
+backend/node_modules/
+backend/dist/
+backend/build/
+
+# Misc
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+
+# Test
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+
+# Mac
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+Desktop.ini
