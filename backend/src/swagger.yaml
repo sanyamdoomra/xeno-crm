@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: Mini CRM Platform API
+  version: 1.0.0
+  description: API documentation for Mini CRM Platform
+servers:
+  - url: http://localhost:4000
+paths:
+  /api/customers:
+    post:
+      summary: Ingest customer data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer ingested
+  /api/orders:
+    post:
+      summary: Ingest order data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Order ingested
+  /api/segments:
+    post:
+      summary: Create audience segment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SegmentRule'
+      responses:
+        '200':
+          description: Segment created
+  /api/campaigns:
+    get:
+      summary: List campaigns
+      responses:
+        '200':
+          description: List of campaigns
+  /api/vendor/send:
+    post:
+      summary: Simulate vendor message delivery
+      responses:
+        '200':
+          description: Delivery simulated
+  /api/receipts:
+    post:
+      summary: Delivery receipt callback
+      responses:
+        '200':
+          description: Receipt processed
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        totalSpend:
+          type: number
+        visits:
+          type: integer
+        lastActive:
+          type: string
+          format: date
+    Order:
+      type: object
+      properties:
+        customerId:
+          type: integer
+        amount:
+          type: number
+        date:
+          type: string
+          format: date
+    SegmentRule:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              operator:
+                type: string
+              value:
+                type: string
+        logic:
+          type: string
+          description: AND/OR logic
